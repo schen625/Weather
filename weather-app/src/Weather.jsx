@@ -40,23 +40,29 @@ const Weather = () => {
     }
 
     return (
-        <div className = "weather"> 
-            <h1>Weather App</h1>
+        <div className="weather">
+        <div className = "background"> 
             <form onSubmit = {setValue}>
                 <label htmlFor = "city">City: </label>
                 <input type = "text" id = "city" name = "city" value ={city} onChange = {changeCity}/>
             </form>
         {weather?.main && weather?.weather?.[0] ? (
-            <>
-            <h2></h2>
-            <h3>{weather.name}: {weather.weather[0].description}</h3>
+            <h2>{weather.name}: {weather.weather[0].description}</h2>
+        ):(<p>Loading....</p>)}
+        {weather?.main && weather?.weather?.[0] ? (
+            <div className="middle">
+            <div className="row">
+            <h1></h1>
             <p>Temperature: {convert(weather.main.temp).toFixed(1)} degrees</p>
-            <p>Real Feel: {convert(weather.main.feels_like).toFixed(1)} degrees</p>
-            <p>Humidity: {weather.main.humidity}</p>
             <p>High: {convert(weather.main.temp_max).toFixed(1)} degrees</p>
-            <p>Low: {convert(weather.main.min).toFixed(1)} degrees</p>
-            </>
+            </div>
+            <div className="row">
+            <p>Real Feel: {convert(weather.main.feels_like).toFixed(1)} degrees</p>
+            <p>Low: {convert(weather.main.temp_min).toFixed(1)} degrees</p>
+            </div>
+            </div>
         ): (<p>Loading....</p>)}  
+        </div>
         </div>
     )
 }
