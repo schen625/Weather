@@ -43,7 +43,7 @@ const Weather = () => {
         <div className="weather">
         <div className = "background"> 
             <form onSubmit = {setValue}>
-                <label htmlFor = "city">City: </label>
+                <label htmlFor = "city"><b>City: </b></label>
                 <input type = "text" id = "city" name = "city" value ={city} onChange = {changeCity}/>
             </form>
         {weather?.main && weather?.weather?.[0] ? (
@@ -53,12 +53,12 @@ const Weather = () => {
             <div className="middle">
             <div className="row">
             <h1></h1>
-            <p>Temperature: {convert(weather.main.temp).toFixed(1)} degrees</p>
-            <p>High: {convert(weather.main.temp_max).toFixed(1)} degrees</p>
+            <p><b>Temperature: </b>{convert(weather.main.temp).toFixed(1)} degrees</p>
+            <p><b>High: </b>{convert(weather.main.temp_max).toFixed(1)} degrees</p>
             </div>
             <div className="row">
-            <p>Real Feel: {convert(weather.main.feels_like).toFixed(1)} degrees</p>
-            <p>Low: {convert(weather.main.temp_min).toFixed(1)} degrees</p>
+            <p><b>Real Feel: </b>{convert(weather.main.feels_like).toFixed(1)} degrees</p>
+            <p><b>Low: </b>{convert(weather.main.temp_min).toFixed(1)} degrees</p>
             </div>
             </div>
         ): (<p>Loading....</p>)}  
